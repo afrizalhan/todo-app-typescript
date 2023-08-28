@@ -9,23 +9,65 @@ export interface Todo {
 }
 
 interface TodoContextProps{
-  todos: string[]
+  todos: Todo[]
   addTodo: (text: string) => void
+  deleteTodo: (text: string) => void
+  editTodo: (id: string, text: string) => void
+  updateTodoStatus: (id: string) => void
 }
 
 export const TodoContext = createContext<TodoContextProps | undefined>(undefined)
 
 export const TodoProvider = (props: { children: React.ReactNode }) => {
-  const [todos, setTodos] = useState<string[]>([])
+  const [todos, setTodos] = useLocalStorage<Todo[]>('todos', [])
 
   // Add New Todo Item
   const addTodo = (text: string) => {
-    setTodos([...todos, text])
+    const newTodo: Todo = {
+      id: nanoid(),
+      text,
+      status: 'undone'
+    }
+    setTodos([...todos, newTodo])
+  }
+
+  //Delete A Todo Item
+  const deleteTodo = (id: string) => {
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id))
+  }
+
+  //Edit a Todo Item
+  const editTodo = (id: string, text: string) => {
+    setTodos(prevTodos => {
+      return prevTodos.map(todo => {
+        if (todo.id === id) {
+          return {...todo, text}
+        }
+        return todo
+      })
+    })
+  }
+
+  const updateTodoStatus = (id: string) => {
+    setTodos(prevTodos => {
+      return prevTodos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            status: todo.status === 'undone' ? 'completed' : 'undone',
+          }
+        }
+        return todo
+      })
+    })
   }
 
   const value: TodoContextProps = {
     todos,
-    addTodo
+    addTodo,
+    deleteTodo,
+    editTodo,
+    updateTodoStatus
   }
 
 

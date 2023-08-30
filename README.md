@@ -1,5 +1,5 @@
 # Typescript To-do App
-This is a simple To-do App built using TypeScript. This app was made for learning purposes, following the tutorial on freecodecamp. [Tutorial Link](https://www.freecodecamp.org/news/typescript-tutorial-for-react-developers/){:target="_blank"}.
+This is a simple To-do App built using TypeScript. This app was made for learning purposes, following the tutorial on freecodecamp. <a href="https://www.freecodecamp.org/news/typescript-tutorial-for-react-developers/" target="_blank">Tutorial Link</a>.
 
 ## Learnings 
 What i've learned while building this project:

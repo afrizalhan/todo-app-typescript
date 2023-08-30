@@ -1,5 +1,5 @@
 # Typescript To-do App
-This is a simple To-do App built using TypeScript. This app was made for learning purposes, following the tutorial on freecodecamp. [Tutorial Link](https://www.freecodecamp.org/news/typescript-tutorial-for-react-developers/).
+This is a simple To-do App built using TypeScript. This app was made for learning purposes, following the tutorial on freecodecamp. [Tutorial Link](https://www.freecodecamp.org/news/typescript-tutorial-for-react-developers/){:target="_blank"}.
 
 ## Learnings 
 What i've learned while building this project:
@@ -28,7 +28,7 @@ What i've learned while building this project:
 ## Installation
 1. Clone this repository to your local machine or download and extract the ZIP file.
 ```shell
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/afrizalhan/todo-app-typescript.git
 ```
 2. Navigate to the project directory
 ```shell
